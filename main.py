@@ -6,7 +6,7 @@ import json
 import numpy as np
 
 local_server = 'http://localhost:5100/predict'
-remote_server = 'http://125.132.250.102:5100/predict'
+remote_server = 'http://15.165.102.170:5100/predict'
 
 st.sidebar.title("불법복제품 판독 시스템")
 st.sidebar.info("Mobile-Demo")
@@ -34,7 +34,7 @@ if len(image_files) != 0:
 
 		# file_data.append(("choice", choice))
 		st.subheader('결과')
-		res = requests.post(local_server, files=file_data, data={"choice": choice})
+		res = requests.post(remote_server, files=file_data, data={"choice": choice})
 		# res = requests.post(local_server, json=json_data)
 		result = json.loads(res.content)
 		for i, r in enumerate(result):
